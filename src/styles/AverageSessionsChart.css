@@ -1,0 +1,12 @@
+/* src/styles/AverageSessionsChart.css */
+.sessions-chart {
+    background-color: #fbfbfb;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .sessions-chart h2 {
+    margin-bottom: 20px;
+  }
+  

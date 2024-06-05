@@ -1,0 +1,21 @@
+/* src/styles/App.css */
+.app-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.charts {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.key-data {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}

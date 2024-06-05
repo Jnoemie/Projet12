@@ -1,0 +1,12 @@
+/* src/styles/UserActivityChart.css */
+.activity-chart {
+    background-color: #fbfbfb;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .activity-chart h2 {
+    margin-bottom: 20px;
+  }
+  

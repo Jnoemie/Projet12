@@ -1,0 +1,19 @@
+/* src/styles/UserKeyData.css */
+.key-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .key-data-item {
+    background-color: #fbfbfb;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .key-data-item p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  

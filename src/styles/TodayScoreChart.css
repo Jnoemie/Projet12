@@ -1,0 +1,26 @@
+/* src/styles/TodayScoreChart.css */
+.score-chart {
+    background-color: #fbfbfb;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  .score-chart h2 {
+    margin-bottom: 20px;
+  }
+  
+  .score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .score-text span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

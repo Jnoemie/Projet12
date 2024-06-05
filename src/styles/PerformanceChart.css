@@ -1,0 +1,13 @@
+/* src/styles/PerformanceChart.css */
+.performance-chart {
+    background-color: #fbfbfb;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .performance-chart h2 {
+    margin-bottom: 20px;
+  }
+
+  
