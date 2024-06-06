@@ -4,6 +4,6 @@ export type UserPerformance = {
 };
 
 export type PerformanceData = {
-    day: string;
-    score: number;
+    kind: string;
+    value: number;
 };

@@ -1,19 +1,33 @@
 /* src/styles/UserKeyData.css */
 .key-data {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .key-data-item {
-    background-color: #fbfbfb;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .key-data-item p:first-child {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.key-data-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.key-data-icon {
+  margin-right: 20px;
+}
+
+.key-data-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.key-data-content p {
+  margin: 0;
+}
+
+.key-data-content p:first-child {
+  font-weight: bold;
+  font-size: 18px;
+}

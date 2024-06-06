@@ -67,34 +67,16 @@ export class InMemoryUser implements UserGateway {
     }
     getUserPerformance({ userId }: { userId: number }): Promise<UserPerformance> {
       return Promise.resolve({
-          userId: 12,
-          performanceData: [
-              {
-                  day: "2020g-07-01",
-                  score: 80,
-              },
-              {
-                  day: "2020-07-02",
-                  score: 120,
-              },
-              {
-                  day: "2020-07-03",
-                  score: 140,
-              },
-              {
-                  day: "2020-07-04",
-                  score: 50,
-              },
-              {
-                  day: "2020-07-05",
-                  score: 200,
-              },
-              {
-                  day: "2020-07-06",
-                  score: 90,
-              },
-          ],
-      });
+        userId: 12,
+        performanceData: [
+            { kind: "Cardio", value: 80 },
+            { kind: "Energie", value: 120 },
+            { kind: "Endurance", value: 140 },
+            { kind: "Force", value: 50 },
+            { kind: "Vitesse", value: 200 },
+            { kind: "Intensité", value: 90 },
+        ],
+    });
   }
  getUserAverageSession({ userId }: { userId: number }): Promise<UserAverageSession> {
     return Promise.resolve({

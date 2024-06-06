@@ -1,6 +1,9 @@
-import { UserPerformance } from '../models/user-performance';
 import { userLoader } from '../../main';
+import { UserPerformance } from '../models/user-performance';
 
-export const getUserPerformance = async (userId: number): Promise<UserPerformance> => {
-    return userLoader().getUserPerformance({ userId });
+// Usecase: point d'entrée quand il y a une interaction utilisateur (récupération de donnée, création de quelque chose)
+export const getUserPerformance = async ({ userId }: { userId: number }): Promise<UserPerformance> => {
+  const userPerformance = await userLoader().getUserPerformance({ userId });
+
+  return userPerformance;
 };
