@@ -1,12 +1,27 @@
-/* src/styles/AverageSessionsChart.css */
 .sessions-chart {
-    background-color: #fbfbfb;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 0;
-  }
-  
-  .sessions-chart h2 {
-    margin-bottom: 20px;
-  }
-  
+  background-color: #E60000;
+  border-radius: 5px;
+  padding: 20px;
+  color: white;
+}
+
+.sessions-chart h2 {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.custom-tooltip {
+  background: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+
+.custom-tooltip p {
+  margin: 0;
+}

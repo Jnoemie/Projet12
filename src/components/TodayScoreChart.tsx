@@ -2,9 +2,11 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import '../styles/TodayScoreChart.css';
 
-const TodayScoreChart = ({ score }) => {
-  const data = [{ value: score }, { value: 1 - score }];
-  const COLORS = ['#FF0000', '#FFFFFF'];
+const TodayScoreChart = ({ score }: { score: number }) => {
+  const data = [
+    { name: 'Score', value: score },
+    { name: 'Remaining', value: 1 - score },
+  ];
 
   return (
     <div className="score-chart">
@@ -13,20 +15,19 @@ const TodayScoreChart = ({ score }) => {
         <PieChart>
           <Pie
             data={data}
+            innerRadius={70}
+            outerRadius={80}
             startAngle={90}
             endAngle={450}
-            innerRadius="70%"
-            outerRadius="80%"
             dataKey="value"
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
+            <Cell key="Score" fill="#FF0000" />
+            <Cell key="Remaining" fill="#FBFBFB" />
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div className="score-text">
-        <span>{score * 100}%</span>
+      <div className="score-content">
+        <p className="score-value">{`${score * 100}%`}</p>
         <p>de votre objectif</p>
       </div>
     </div>

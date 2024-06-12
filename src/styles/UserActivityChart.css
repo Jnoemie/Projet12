@@ -1,12 +1,25 @@
-/* src/styles/UserActivityChart.css */
 .activity-chart {
-    background-color: #fbfbfb;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 0;
-  }
-  
-  .activity-chart h2 {
-    margin-bottom: 20px;
-  }
-  
+  background-color: #FBFBFB;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity-chart h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #20253A;
+}
+
+.custom-tooltip {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.custom-tooltip p {
+  margin: 0;
+  font-size: 14px;
+  color: #20253A;
+}

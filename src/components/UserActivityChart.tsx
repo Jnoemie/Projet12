@@ -1,42 +1,59 @@
-import React, {useEffect, useState} from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import '../styles/UserActivityChart.css';
-
 
 import { getUserActivity } from '../domain/usecases/get-user-activity';
 import { Session } from '../domain/models/user-activity';
 
-export const UserActivityChart = ({userId}: {userId: number}) => {
-
+export const UserActivityChart = ({ userId }: { userId: number }) => {
   const [sessions, setSessions] = useState<Session[]>([]);
 
   useEffect(() => {
     const fetchUserActivity = async () => {
-      const userActivity = await getUserActivity({userId});
-
-      setSessions(userActivity.sessions)
-    }
+      const userActivity = await getUserActivity({ userId });
+      setSessions(userActivity.sessions);
+    };
 
     fetchUserActivity();
-  })
+  }, [userId]);
 
-  if(sessions.length === 0) return null;
+  if (sessions.length === 0) return <div>Loading...</div>;
 
   return (
     <div className="activity-chart">
       <h2>Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={sessions}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="kilogram" fill="#8884d8" />
-          <Bar dataKey="calories" fill="#82ca9d" />
+        <BarChart data={sessions} barGap={8}>
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis dataKey="day" tickLine={false} />
+          <YAxis yAxisId="left" orientation="left" tickLine={false} axisLine={false} />
+          <YAxis yAxisId="right" orientation="right" tickLine={false} axisLine={false} />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend align="right" verticalAlign="top" iconType="circle" height={36} />
+          <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]} />
+          <Bar yAxisId="right" dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
+type CustomTooltipProps = {
+  active?: boolean;
+  payload?: any; // Vous pouvez affiner ce type en fonction de la structure de vos données
+};
+
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active = false, payload = [] }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value}kg`}</p>
+        <p className="label">{`${payload[1].value}Kcal`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+export default UserActivityChart;

@@ -9,41 +9,16 @@ export class InMemoryUser implements UserGateway {
       return Promise.resolve({
         userId: 12,
         sessions: [
-          {
-            day: "2020-07-01",
-            kilogram: 80,
-            calories: 240,
-          },
-          {
-            day: "2020-07-02",
-            kilogram: 80,
-            calories: 220,
-          },
-          {
-            day: "2020-07-03",
-            kilogram: 81,
-            calories: 280,
-          },
-          {
-            day: "2020-07-04",
-            kilogram: 81,
-            calories: 290,
-          },
-          {
-            day: "2020-07-05",
-            kilogram: 80,
-            calories: 160,
-          },
-          {
-            day: "2020-07-06",
-            kilogram: 78,
-            calories: 162,
-          },
-          {
-            day: "2020-07-07",
-            kilogram: 76,
-            calories: 390,
-          },
+          { day: "1", kilogram: 80, calories: 240 },
+        { day: "2", kilogram: 80, calories: 220 },
+        { day: "3", kilogram: 81, calories: 280 },
+        { day: "4", kilogram: 81, calories: 290 },
+        { day: "5", kilogram: 80, calories: 160 },
+        { day: "6", kilogram: 78, calories: 162 },
+        { day: "7", kilogram: 76, calories: 390 },
+        { day: "8", kilogram: 77, calories: 168 },
+        { day: "9", kilogram: 79, calories: 180 },
+        { day: "10", kilogram: 75, calories: 192 }
         ],
       });
     }
@@ -82,13 +57,13 @@ export class InMemoryUser implements UserGateway {
     return Promise.resolve({
       userId: 12,
       sessions: [
-        { day: "2020-07-01", sessionLength: 30 },
-        { day: "2020-07-02", sessionLength: 23 },
-        { day: "2020-07-03", sessionLength: 45 },
-        { day: "2020-07-04", sessionLength: 50 },
-        { day: "2020-07-05", sessionLength: 0 },
-        { day: "2020-07-06", sessionLength: 0 },
-        { day: "2020-07-07", sessionLength: 60 }
+        { day: "L", sessionLength: 30 },
+        { day: "M", sessionLength: 23 },
+        { day: "M", sessionLength: 45 },
+        { day: "J", sessionLength: 50 },
+        { day: "V", sessionLength: 0 },
+        { day: "S", sessionLength: 0 },
+        { day: "D", sessionLength: 60 },
       ]
     });
   }

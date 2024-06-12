@@ -1,13 +1,24 @@
-/* src/styles/PerformanceChart.css */
 .performance-chart {
-    background-color: #fbfbfb;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 0;
-  }
-  
-  .performance-chart h2 {
-    margin-bottom: 20px;
-  }
+  background-color: #282D30;
+  border-radius: 5px;
+  padding: 20px;
+  color: white;
+}
+
+.performance-chart h2 {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.recharts-polar-angle-axis text {
+  fill: white;
+}
+
+.recharts-radar {
+  fill: rgba(230, 0, 0, 0.7);
+  stroke: #E60000;
+}
 
   
