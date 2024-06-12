@@ -6,4 +6,5 @@ export type UserAverageSession = {
 export type SessionData = {
     day: string;
     sessionLength: number;
+    formattedSessionLength: string;
 };

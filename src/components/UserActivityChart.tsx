@@ -28,7 +28,7 @@ export const UserActivityChart = ({ userId }: { userId: number }) => {
           <XAxis dataKey="day" tickLine={false} />
           <YAxis yAxisId="left" orientation="left" tickLine={false} axisLine={false} />
           <YAxis yAxisId="right" orientation="right" tickLine={false} axisLine={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip />
           <Legend align="right" verticalAlign="top" iconType="circle" height={36} />
           <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]} />
           <Bar yAxisId="right" dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
@@ -36,24 +36,6 @@ export const UserActivityChart = ({ userId }: { userId: number }) => {
       </ResponsiveContainer>
     </div>
   );
-};
-
-type CustomTooltipProps = {
-  active?: boolean;
-  payload?: any; // Vous pouvez affiner ce type en fonction de la structure de vos données
-};
-
-const CustomTooltip: React.FC<CustomTooltipProps> = ({ active = false, payload = [] }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{`${payload[0].value}kg`}</p>
-        <p className="label">{`${payload[1].value}Kcal`}</p>
-      </div>
-    );
-  }
-
-  return null;
 };
 
 export default UserActivityChart;

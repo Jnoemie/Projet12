@@ -13,13 +13,10 @@
 }
 
 .custom-tooltip {
-  background: white;
-  border: none;
-  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px;
   border-radius: 5px;
-  color: black;
-  font-size: 14px;
-  text-align: center;
 }
 
 .custom-tooltip p {

@@ -57,13 +57,13 @@ export class InMemoryUser implements UserGateway {
     return Promise.resolve({
       userId: 12,
       sessions: [
-        { day: "L", sessionLength: 30 },
-        { day: "M", sessionLength: 23 },
-        { day: "M", sessionLength: 45 },
-        { day: "J", sessionLength: 50 },
-        { day: "V", sessionLength: 0 },
-        { day: "S", sessionLength: 0 },
-        { day: "D", sessionLength: 60 },
+      { day: "L", sessionLength: 30, formattedSessionLength: "30 min" },
+      { day: "M", sessionLength: 23, formattedSessionLength: "23 min" },
+      { day: "M", sessionLength: 45, formattedSessionLength: "45 min" },
+      { day: "J", sessionLength: 50, formattedSessionLength: "50 min" },
+      { day: "V", sessionLength: 0, formattedSessionLength: "0 min" },
+      { day: "S", sessionLength: 0, formattedSessionLength: "0 min" },
+      { day: "D", sessionLength: 60, formattedSessionLength: "60 min" },
       ]
     });
   }
