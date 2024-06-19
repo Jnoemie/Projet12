@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import UserName from './components/UserName';
-import UserKeyData from './components/UserKeyData';
-import { UserActivityChart } from './components/UserActivityChart';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import AverageSessionsChart from './components/AverageSessionsChart';
-import PerformanceChart from './components/PerformanceChart';
-import TodayScoreChart from './components/TodayScoreChart';
-import './styles/App.css';
+import React, { useEffect, useState } from "react";
+import UserName from "./components/UserName";
+import UserKeyData from "./components/UserKeyData";
+import { UserActivityChart } from "./components/UserActivityChart";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import AverageSessionsChart from "./components/AverageSessionsChart";
+import PerformanceChart from "./components/PerformanceChart";
+import TodayScoreChart from "./components/TodayScoreChart";
+import "./styles/App.css";
 
-import { getUser } from './domain/usecases/get-user';
-import { User } from './domain/models/user';
-import { USER } from './main';
+import { getUser } from "./domain/usecases/get-user";
+import { User } from "./domain/models/user";
+import { USER } from "./main";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -34,14 +34,28 @@ function App() {
         <Header />
         <main>
           <UserName firstName={user.userInfos.firstName} />
-          <div className="charts">
-            <UserActivityChart userId={USER} />
-            <AverageSessionsChart userId={USER} />
-            <PerformanceChart userId={USER} />
-            <TodayScoreChart score={user.todayScore} />
-          </div>
-          <div className="key-data">
-            <UserKeyData keyData={user.keyData} />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "30px",
+            }}
+          >
+            <div className="charts" style={{ flexDirection: "column" }}>
+              <UserActivityChart userId={USER} />
+              <div
+                className="charts-row"
+                style={{ display: "flex", gap: "30px", width: "100%" }}
+              >
+                <AverageSessionsChart userId={USER} />
+                <PerformanceChart userId={USER} />
+                <TodayScoreChart score={user.todayScore} />
+              </div>
+            </div>
+
+            <div className="key-data">
+              <UserKeyData keyData={user.keyData} />
+            </div>
           </div>
         </main>
       </div>
