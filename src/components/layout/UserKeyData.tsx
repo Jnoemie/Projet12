@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/UserKeyData.css';
+import '../../styles/UserKeyData.css';
 
 interface KeyDataProps {
   keyData: {

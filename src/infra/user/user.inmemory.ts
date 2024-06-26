@@ -1,8 +1,8 @@
-import { UserGateway } from "../domain/usecases/user-gateway"
-import {  User } from '../domain/models/user';
-import {  UserActivity } from '../domain/models/user-activity';
-import { UserPerformance } from '../domain/models/user-performance';
-import { UserAverageSession } from "../domain/models/user-average-session";
+import { UserGateway } from "../gateway/user-gateway"
+import {  User } from '../../domain/models/type/user';
+import {  UserActivity } from '../../domain/models/type/user-activity';
+import { UserPerformance } from '../../domain/models/type/user-performance';
+import { UserAverageSession } from "../../domain/models/type/user-average-session";
 
 export class InMemoryUser implements UserGateway {
     getUserActivity({userId} : { userId: number}): Promise<UserActivity>{

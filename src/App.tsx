@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import UserName from "./components/UserName";
-import UserKeyData from "./components/UserKeyData";
-import { UserActivityChart } from "./components/UserActivityChart";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import AverageSessionsChart from "./components/AverageSessionsChart";
-import PerformanceChart from "./components/PerformanceChart";
-import TodayScoreChart from "./components/TodayScoreChart";
+import UserName from "./components/layout/UserName";
+import UserKeyData from "./components/layout/UserKeyData";
+import { UserActivityChart } from "./components/chart/UserActivityChart";
+import Sidebar from "./components/layout/Sidebar";
+import Header from "./components/layout/Header";
+import AverageSessionsChart from "./components/chart/AverageSessionsChart";
+import PerformanceChart from "./components/chart/PerformanceChart";
+import TodayScoreChart from "./components/chart/TodayScoreChart";
 import "./styles/App.css";
 
 import { getUser } from "./domain/usecases/get-user";
-import { User } from "./domain/models/user";
-import { USER } from "./main";
+import { User } from "./domain/models/type/user";
+import { USER } from "./infra/constants/const";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);

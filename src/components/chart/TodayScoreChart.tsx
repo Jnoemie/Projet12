@@ -1,6 +1,6 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import '../styles/TodayScoreChart.css';
+import '../../styles/TodayScoreChart.css';
 
 const TodayScoreChart = ({ score }: { score: number }) => {
   const data = [

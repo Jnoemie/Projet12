@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/UserName.css';
+import '../../styles/UserName.css';
 
 const UserName = ({ firstName }) => {
   return (

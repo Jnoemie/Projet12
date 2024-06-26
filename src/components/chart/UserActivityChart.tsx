@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import '../styles/UserActivityChart.css';
+import "../../styles/UserActivityChart.css";
 
-import { getUserActivity } from '../domain/usecases/get-user-activity';
-import { Session } from '../domain/models/user-activity';
+import { getUserActivity } from '../../domain/usecases/get-user-activity';
+import { SessionsActivity } from '../../domain/models/type/user-activity';
 
 export const UserActivityChart = ({ userId }: { userId: number }) => {
-  const [sessions, setSessions] = useState<Session[]>([]);
+  const [sessions, setSessions] = useState<SessionsActivity[]>([]);
 
   useEffect(() => {
     const fetchUserActivity = async () => {

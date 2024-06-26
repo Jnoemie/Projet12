@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-import '../styles/PerformanceChart.css';
+import '../../styles/PerformanceChart.css';
 
-import { getUserPerformance } from '../domain/usecases/get-user-performance';
-import { PerformanceData } from '../domain/models/user-performance';
+import { getUserPerformance } from '../../domain/usecases/get-user-performance';
+import { PerformanceData } from '../../domain/models/type/user-performance';
 
 const PerformanceChart = ({ userId }: { userId: number }) => {
   const [performanceData, setPerformanceData] = useState<PerformanceData[]>([]);

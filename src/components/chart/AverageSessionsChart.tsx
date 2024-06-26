@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Legend, TooltipProps } from 'recharts';
-import '../styles/AverageSessionsChart.css';
+import '../../styles/AverageSessionsChart.css';
 
-import { getUserAverageSession } from '../domain/usecases/get-user-average-session';
-import { SessionData } from '../domain/models/user-average-session';
+import { getUserAverageSession } from '../../domain/usecases/get-user-average-session';
+import { SessionsData } from '../../domain/models/type/user-average-session';
 
 // Définition du composant CustomTooltip
 const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
@@ -20,7 +20,7 @@ const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
 
 // Définition du composant AverageSessionsChart
 export const AverageSessionsChart = ({ userId }: { userId: number }) => {
-  const [sessions, setSessions] = useState<SessionData[]>([]);
+  const [sessions, setSessions] = useState<SessionsData[]>([]);
 
   useEffect(() => {
     const fetchUserAverageSessions = async () => {
