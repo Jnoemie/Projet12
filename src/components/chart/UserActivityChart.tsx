@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import "../../styles/UserActivityChart.css";
+import { useFetchActivity } from '../hook/use-activity';
 
-import { getUserActivity } from '../../domain/usecases/get-user-activity';
-import { SessionsActivity } from '../../domain/models/type/user-activity';
+const UserActivityChart = ({ userId }: { userId: number }) => {
+  const { activityData, isLoading, error } = useFetchActivity(userId);
 
-export const UserActivityChart = ({ userId }: { userId: number }) => {
-  const [sessions, setSessions] = useState<SessionsActivity[]>([]);
-
-  useEffect(() => {
-    const fetchUserActivity = async () => {
-      const userActivity = await getUserActivity({ userId });
-      setSessions(userActivity.sessions);
-    };
-
-    fetchUserActivity();
-  }, [userId]);
-
-  if (sessions.length === 0) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="activity-chart">
       <h2>Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={sessions} barGap={8}>
+        <BarChart data={activityData?.sessions} barGap={8}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="day" tickLine={false} />
           <YAxis yAxisId="left" orientation="left" tickLine={false} axisLine={false} />

@@ -1,9 +1,9 @@
-import { UserPerformanceApi, PerformanceApiData , PerformanceData,} from "../type/user-performance";
+import { UserPerformanceApi, PerformanceApiData , PerformanceData,} from "../api/type /user-performance-api";
 
 
 export class UserPerformanceModel {
     userId: number;
-    data: PerformanceData[];
+    performanceData: PerformanceData[];
 
     /**
      * Crée un modèle de données de performance utilisateur.
@@ -11,7 +11,7 @@ export class UserPerformanceModel {
      */
     constructor(data: UserPerformanceApi) {
         this.userId = data.userId;
-        this.data = this.transformPerformanceData(data);
+        this.performanceData = this.transformPerformanceData(data);
     }
 
     /**

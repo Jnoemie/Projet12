@@ -1,4 +1,4 @@
-import { UserGateway } from "../gateway/user-gateway"
+import { UserGateway } from "./user-gateway"
 import {  User } from '../../domain/models/type/user';
 import {  UserActivity } from '../../domain/models/type/user-activity';
 import { UserPerformance } from '../../domain/models/type/user-performance';

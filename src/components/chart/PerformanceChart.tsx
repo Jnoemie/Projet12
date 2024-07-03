@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import '../../styles/PerformanceChart.css';
-
-import { getUserPerformance } from '../../domain/usecases/get-user-performance';
-import { PerformanceData } from '../../domain/models/type/user-performance';
+import { useFetchPerformance } from '../hook/use-performance';
 
 const PerformanceChart = ({ userId }: { userId: number }) => {
-  const [performanceData, setPerformanceData] = useState<PerformanceData[]>([]);
+  const { performanceData, isLoading, error } = useFetchPerformance(userId);
 
-  useEffect(() => {
-    const fetchUserPerformance = async () => {
-      const userPerformance = await getUserPerformance({ userId });
-      setPerformanceData(userPerformance.performanceData);
-    };
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-    fetchUserPerformance();
-  }, [userId]);
-
-  if (performanceData.length === 0) return <div>Loading...</div>;
-
+  
   return (
     <div className="performance-chart">
       <h2>Performance</h2>
@@ -34,3 +25,4 @@ const PerformanceChart = ({ userId }: { userId: number }) => {
 };
 
 export default PerformanceChart;
+  

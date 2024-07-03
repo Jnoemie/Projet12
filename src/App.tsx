@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import UserName from "./components/layout/UserName";
-import UserKeyData from "./components/layout/UserKeyData";
-import { UserActivityChart } from "./components/chart/UserActivityChart";
-import Sidebar from "./components/layout/Sidebar";
-import Header from "./components/layout/Header";
-import AverageSessionsChart from "./components/chart/AverageSessionsChart";
-import PerformanceChart from "./components/chart/PerformanceChart";
-import TodayScoreChart from "./components/chart/TodayScoreChart";
+import UserName from "./components/userName";
+import UserKeyData from "./components/userKeyData";
+import UserActivityChart from "./components/chart/userActivityChart"
+import Sidebar from "./components/layout/sidebar";
+import Header from "./components/layout/header";
+import AverageSessionsChart from "./components/chart/averageSessionsChart";
+import PerformanceChart from "./components/chart/performanceChart";
+import TodayScoreChart from "./components/chart/todayScoreChart";
 import "./styles/App.css";
 
 import { getUser } from "./domain/usecases/get-user";

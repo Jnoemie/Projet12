@@ -1,4 +1,4 @@
-import { userLoader } from '../../infra/loader/User-loader';
+import { userLoader } from '../../infra/loader/user-loader';
 import { UserPerformance } from '../models/type/user-performance';
 
 // Usecase: point d'entrée quand il y a une interaction utilisateur (récupération de donnée, création de quelque chose)

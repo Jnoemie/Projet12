@@ -1,4 +1,4 @@
-import { InMemoryUser } from '../user/user.inmemory';
+import { InMemoryUser } from '../gateway/user.inmemory';
 import { ApiUser } from "../gateway/user-gateway-api";
 import { SOURCE } from "../constants/const";
 

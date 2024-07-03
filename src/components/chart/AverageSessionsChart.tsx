@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Legend, TooltipProps } from 'recharts';
 import '../../styles/AverageSessionsChart.css';
+import { useFetchSessions } from '../hook/use-fetch-sessions';
 
-import { getUserAverageSession } from '../../domain/usecases/get-user-average-session';
-import { SessionsData } from '../../domain/models/type/user-average-session';
-
-// Définition du composant CustomTooltip
 const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     const { formattedSessionLength } = payload[0].payload;
@@ -18,29 +15,19 @@ const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   return null;
 };
 
-// Définition du composant AverageSessionsChart
 export const AverageSessionsChart = ({ userId }: { userId: number }) => {
-  const [sessions, setSessions] = useState<SessionsData[]>([]);
+  const { sessionsData, isLoading, error } = useFetchSessions(userId);
 
-  useEffect(() => {
-    const fetchUserAverageSessions = async () => {
-      const userSessions = await getUserAverageSession({ userId });
-      setSessions(userSessions.sessions);
-    };
-
-    fetchUserAverageSessions();
-  }, [userId]);
-
-  if (sessions.length === 0) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="sessions-chart">
       <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={sessions}>
+        <LineChart data={sessionsData?.sessions}>
           <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: 'white' }} />
           <Tooltip content={<CustomTooltip />} />
-         
           <Line type="monotone" dataKey="sessionLength" stroke="#fff" dot={false} activeDot={{ r: 8 }} />
         </LineChart>
       </ResponsiveContainer>

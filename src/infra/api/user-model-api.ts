@@ -1,4 +1,4 @@
-import { KeyData, UserInfos, User, UserInfosApi } from "../type/user";
+import { KeyData, UserInfos, UserInfosApi } from "../api/type /user-api";
 
 export class UserModel {
     id: number;

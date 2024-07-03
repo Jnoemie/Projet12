@@ -1,4 +1,4 @@
-import { UserAverageSessionApi, SessionsData, UserAverageSession } from "../type/user-average-session";
+import { UserAverageSessionApi, SessionsData } from "../api/type /user-average-session-api";
 
 export class UserSessionsModel {
     userId: number;

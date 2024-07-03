@@ -10,12 +10,10 @@ export type UserInfos = {
     lastName: string;
     age: number;
 };
-
-export type User = {
+export type UserInfosApi = {
     id: number;
     userInfos: UserInfos;
-    todayScore: number;
-    todayScorePercentage: number;
+    todayScore?: number;
+    score?: number;
     keyData: KeyData;
 };
-

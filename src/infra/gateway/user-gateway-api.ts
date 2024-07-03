@@ -1,13 +1,18 @@
+//Importations nécessaires
 import { BASE_URL } from "../constants/const";
-import { UserActivity, UserActivityApi } from "../../domain/models/type/user-activity";
-import { UserAverageSession, UserAverageSessionApi } from "../../domain/models/type/user-average-session";
-import { User, UserInfosApi } from "../../domain/models/type/user";
+import { UserActivity} from "../../domain/models/type/user-activity";
+import { UserActivityApi} from '../api/type /user-activity-api'
+import { UserAverageSession } from "../../domain/models/type/user-average-session";
+import {UserAverageSessionApi} from "../api/type /user-average-session-api"
+import { User} from "../../domain/models/type/user";
+import {UserInfosApi} from "../api/type /user-api"
 import { UserGateway } from "./user-gateway";
-import { UserPerformance, UserPerformanceApi } from "../../domain/models/type/user-performance";
-import { UserActivityModel } from "../../domain/models/api/user-activity-model-api";
-import { UserModel } from "../../domain/models/api/user-model-api";
-import { UserSessionsModel } from "../../domain/models/api/user-average-session-model-api";
-import { UserPerformanceModel } from "../../domain/models/api/user-performance-model-api";
+import { UserPerformance } from "../../domain/models/type/user-performance";
+import {UserPerformanceApi} from "../api/type /user-performance-api"
+import { UserActivityModel } from "../../infra/api/user-activity-model-api";
+import { UserModel } from "../../infra/api/user-model-api";
+import { UserSessionsModel } from "../../infra/api/user-average-session-model-api";
+import { UserPerformanceModel } from "../../infra/api/user-performance-model-api";
 
 // Classe ApiUser implémentant UserGateway
 export class ApiUser implements UserGateway {
@@ -35,11 +40,7 @@ export class ApiUser implements UserGateway {
         }
         const { data }: { data: UserActivityApi } = await response.json();
 
-        const userActivityModel = new UserActivityModel(data);
-        return {
-            userId: userActivityModel.userId,
-            sessions: userActivityModel.sessions
-        };
+        return new UserActivityModel(data);
     }
 
     async getUserPerformance({ userId }: { userId: number }): Promise<UserPerformance> {
@@ -49,11 +50,7 @@ export class ApiUser implements UserGateway {
         }
         const { data }: { data: UserPerformanceApi } = await response.json();
 
-        const userPerformanceModel = new UserPerformanceModel(data);
-        return {
-            userId: userPerformanceModel.userId,
-            performanceData: userPerformanceModel.data
-        };
+        return new UserPerformanceModel(data);
     }
 
     async getUserAverageSession({ userId }: { userId: number }): Promise<UserAverageSession> {
@@ -63,10 +60,7 @@ export class ApiUser implements UserGateway {
         }
         const { data }: { data: UserAverageSessionApi } = await response.json();
 
-        const userSessionsModel = new UserSessionsModel(data);
-        return {
-            userId: userSessionsModel.userId,
-            sessions: userSessionsModel.sessions
-        };
+        return new UserSessionsModel(data);
     }
 }
+
