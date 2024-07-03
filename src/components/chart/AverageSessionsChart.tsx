@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Legend, TooltipProps } from 'recharts';
 import '../../styles/AverageSessionsChart.css';
-import { useFetchSessions } from '../hook/use-fetch-sessions';
+import { useFetchSessions } from '../hook/use-average-session';
 
 const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
