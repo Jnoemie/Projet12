@@ -4,7 +4,7 @@ import '../../styles/Header.css';
 const Header = () => {
   return (
     <header className="header">
-      <h1>SportSee</h1>
+      <img src="./logo.svg" alt="Le logo Sportsee" />
       <nav>
         <ul>
           <li>Accueil</li>

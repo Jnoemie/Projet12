@@ -1,19 +1,48 @@
 import React from 'react';
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Legend, TooltipProps } from 'recharts';
+
 import '../../styles/AverageSessionsChart.css';
 import { useFetchSessions } from '../hook/use-average-session';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle, Legend } from 'recharts';
 
-const CustomTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+type TooltipProps = {
+  active?: boolean;
+  payload?: { value: number }[];
+  label?: string;
+};
+const CustomTooltip = ({ active, payload }: TooltipProps) => {
   if (active && payload && payload.length) {
-    const { formattedSessionLength } = payload[0].payload;
-    return (
-      <div className="custom-tooltip">
-        <p>{formattedSessionLength}</p>
-      </div>
-    );
+      return (
+          <div className="tooltip">
+              <p className="tooltip_content">{`${payload[0].value} min`}</p>
+          </div>
+      );
   }
   return null;
 };
+
+
+type CustomCursorProps = {
+  points: { x: number, y: number }[];
+  width: number;
+  height: number;
+  stroke: string;
+};
+
+const CustomCursor = ({ points, width, height, stroke }: CustomCursorProps) => {
+  const { x, y } = points[0];
+  return (
+    <Rectangle
+      fill="#000"
+      stroke={stroke}
+      x={x}
+      y={y}
+      width={width}
+      height={height}
+      fillOpacity={0.1}
+    />
+  );
+};
+
 
 export const AverageSessionsChart = ({ userId }: { userId: number }) => {
   const { sessionsData, isLoading, error } = useFetchSessions(userId);
@@ -25,9 +54,14 @@ export const AverageSessionsChart = ({ userId }: { userId: number }) => {
     <div className="sessions-chart">
       <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={sessionsData?.sessions}>
+        <LineChart
+          data={sessionsData?.sessions}
+          margin={{ top: 0, right: -10, left: -10, bottom: 15 }}
+        >
           <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: 'white' }} />
-          <Tooltip content={<CustomTooltip />} />
+          <YAxis hide domain={[0, 'dataMax + 20']} padding={{ bottom: 25 }} />
+         
+          <Tooltip content={<CustomTooltip />} cursor={<CustomCursor points={[{ x: 0, y: 0 }]} width={500} height={400} stroke="#ff0000" />} />
           <Line type="monotone" dataKey="sessionLength" stroke="#fff" dot={false} activeDot={{ r: 8 }} />
         </LineChart>
       </ResponsiveContainer>

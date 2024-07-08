@@ -9,7 +9,7 @@ export class InMemoryUser implements UserGateway {
       return Promise.resolve({
         userId: 12,
         sessions: [
-          { day: "1", kilogram: 80, calories: 240 },
+        { day: "1", kilogram: 80, calories: 240 },
         { day: "2", kilogram: 80, calories: 220 },
         { day: "3", kilogram: 81, calories: 280 },
         { day: "4", kilogram: 81, calories: 290 },
