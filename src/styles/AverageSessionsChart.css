@@ -12,13 +12,15 @@
   color: white;
 }
 
-.custom-tooltip {
+.tooltipAverage{
   background-color: white;
   border: 1px solid #ccc;
   padding: 5px;
   border-radius: 5px;
 }
 
-.custom-tooltip p {
+.tooltipAverage p {
   margin: 0;
+  color:black;
+
 }

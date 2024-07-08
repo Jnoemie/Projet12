@@ -11,7 +11,7 @@ const TodayScoreChart = ({ score }: { score: number }) => {
   return (
     <div className="score-chart">
       <h2>Score</h2>
-      <ResponsiveContainer width={200} height={300}>
+      <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
           width={730}

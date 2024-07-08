@@ -5,21 +5,15 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/*.activity-chart h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: #20253A;
-}
-
-.custom-tooltip {
-  background: #FFFFFF;
+.tooltip{
+  background: red;
   border: 1px solid #E0E0E0;
   padding: 10px;
   border-radius: 5px;
 }
 
-.custom-tooltip p {
+.tooltip p {
   margin: 0;
   font-size: 14px;
-  color: #20253A;
-}*/
+  color: white;
+}

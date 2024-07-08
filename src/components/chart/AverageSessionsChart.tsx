@@ -12,7 +12,7 @@ type TooltipProps = {
 const CustomTooltip = ({ active, payload }: TooltipProps) => {
   if (active && payload && payload.length) {
       return (
-          <div className="tooltip">
+          <div className="tooltipAverage">
               <p className="tooltip_content">{`${payload[0].value} min`}</p>
           </div>
       );
@@ -53,13 +53,13 @@ export const AverageSessionsChart = ({ userId }: { userId: number }) => {
   return (
     <div className="sessions-chart">
       <h2>Durée moyenne des sessions</h2>
-      <ResponsiveContainer width={200} height={300}>
-        <LineChart width={500} height={400}
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart 
           data={sessionsData?.sessions}
-          margin={{ top: 0, right: -10, left: -10, bottom: 15 }}
+         
         >
           <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{ fill: 'white' }} />
-          <YAxis hide domain={[0, 'dataMax + 20']} padding={{ bottom: 25 }} />
+          <YAxis hide domain={['dataMax + 20']} padding={{ bottom: 25 }} />
          
           <Tooltip content={<CustomTooltip />} cursor={<CustomCursor points={[{ x: 0, y: 0 }]} width={500} height={400} stroke="#ff0000" />} />
           <Line type="monotone" dataKey="sessionLength" stroke="#fff" dot={false} activeDot={{ r: 8 }} />

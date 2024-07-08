@@ -45,10 +45,11 @@ export class InMemoryUser implements UserGateway {
         userId: 12,
         performanceData: [
             { kind: "Cardio", value: 80 },
+            { kind: "Vitesse", value: 200 },
             { kind: "Energie", value: 120 },
             { kind: "Endurance", value: 140 },
             { kind: "Force", value: 50 },
-            { kind: "Vitesse", value: 200 },
+          
             { kind: "Intensité", value: 90 },
         ],
     });
