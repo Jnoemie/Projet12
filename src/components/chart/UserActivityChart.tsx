@@ -15,7 +15,7 @@ const UserActivityChart = ({ userId }: { userId: number }) => {
   return (
     <div className="activity-chart">
       <h2>Activité quotidienne</h2>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer height={300} width="100%" >
         <BarChart data={activityData?.sessions} barGap={8}>
           <CartesianGrid strokeDasharray="3 2" vertical={false} />
           <XAxis  tickLine={false} tickFormatter={formatXAxisTick} />

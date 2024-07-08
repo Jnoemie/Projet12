@@ -4,30 +4,33 @@ import '../../styles/TodayScoreChart.css';
 
 const TodayScoreChart = ({ score }: { score: number }) => {
   const data = [
-    { name: 'Score', value: score },
-    { name: 'Remaining', value: 1 - score },
+    { name: 'Completed', value: score },
+    { name: 'Remaining', value: 1- score },
   ];
 
   return (
     <div className="score-chart">
       <h2>Score</h2>
-      <ResponsiveContainer width={300} height={200}>
+      <ResponsiveContainer width={200} height={300}>
         <PieChart>
           <Pie
+          width={730}
+          height={250}
             data={data}
-            innerRadius={70}
-            outerRadius={80}
-            startAngle={90}
-            endAngle={450}
+            innerRadius="60%"
+            outerRadius="90ù"
+            startAngle={180}
+            endAngle={-180}
+            
             dataKey="value"
           >
-            <Cell key="Score" fill="#FF0000" />
+            <Cell key="Completed" fill="#FF0000" />
             <Cell key="Remaining" fill="#FBFBFB" />
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div className="score-content">
-        <p className="score-value">{`${score * 100}%`}</p>
+      <div className="score-text">
+        <span >{`${score *100 }%`}</span>
         <p>de votre objectif</p>
       </div>
     </div>

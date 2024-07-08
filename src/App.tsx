@@ -34,18 +34,14 @@ function App() {
         <Header />
         <main>
           <UserName firstName={user.userInfos.firstName} />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: "30px",
-            }}
+          <div className="chartPosition"
+           
           >
-            <div className="charts" style={{ flexDirection: "column" }}>
+            <div className="charts" >
               <UserActivityChart userId={USER} />
               <div
                 className="charts-row"
-                style={{ display: "flex", gap: "30px", width: "100%" }}
+                
               >
                 <AverageSessionsChart userId={USER} />
                 <PerformanceChart userId={USER} />
