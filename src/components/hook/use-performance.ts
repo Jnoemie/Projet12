@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getUserPerformance} from "../../domain/usecases/get-user-performance";
-import {PerformanceData} from "../../domain/models/type/user-performance";
+import {UserPerformance} from "../../domain/models/type/user-performance";
   
 
 export const useFetchPerformance =(userId: number) =>{
-    const [performanceData, setPerformanceData] = useState<PerformanceData[]>([]);
+    const [performanceData, setPerformanceData] = useState<UserPerformance| null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
@@ -14,7 +14,7 @@ export const useFetchPerformance =(userId: number) =>{
             setError(null);
             try {
                 const userPerformance = await getUserPerformance({ userId });
-                setPerformanceData(userPerformance.performanceData);
+                setPerformanceData(userPerformance);
             } catch (error: any) {
                 setError(error);
             } finally {

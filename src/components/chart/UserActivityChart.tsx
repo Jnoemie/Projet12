@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useFetchActivity } from '../hook/use-activity';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import "../../styles/UserActivityChart.css";
@@ -18,7 +18,7 @@ const UserActivityChart = ({ userId }: { userId: number }) => {
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={activityData?.sessions} barGap={8}>
           <CartesianGrid strokeDasharray="3 2" vertical={false} />
-          <XAxis dataKey="day" tickLine={false} tickFormatter={formatXAxisTick} />
+          <XAxis  tickLine={false} tickFormatter={formatXAxisTick} />
           <YAxis yAxisId="left" orientation="left" tickLine={false} axisLine={false} hide />
           <YAxis yAxisId="right" orientation="right" tickLine={false} axisLine={false} domain={['dataMin - 1', 'dataMax + 1']} tickCount={3} stroke="#9B9EAC" tickMargin={5
         } />
@@ -50,5 +50,5 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
-const formatXAxisTick = (tick: string) => (parseInt(tick)).toString();
+const formatXAxisTick = (tick: string) => (parseInt(tick +1)).toString();
 export default UserActivityChart;

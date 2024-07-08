@@ -53,7 +53,7 @@ export const AverageSessionsChart = ({ userId }: { userId: number }) => {
   return (
     <div className="sessions-chart">
       <h2>Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width={300} height={300}>
         <LineChart
           data={sessionsData?.sessions}
           margin={{ top: 0, right: -10, left: -10, bottom: 15 }}

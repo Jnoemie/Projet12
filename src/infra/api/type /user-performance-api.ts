@@ -10,7 +10,3 @@ export type UserPerformanceApi = {
     };
     data: PerformanceApiData[];
 };
-export type PerformanceData = {
-    kind: string;
-    value: number;
-};

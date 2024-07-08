@@ -1,5 +1,5 @@
-import { UserPerformanceApi, PerformanceApiData , PerformanceData,} from "../api/type /user-performance-api";
-
+import { UserPerformanceApi, PerformanceApiData } from "../api/type /user-performance-api";
+import { PerformanceData } from "../../domain/models/type/user-performance";
 
 export class UserPerformanceModel {
     userId: number;
@@ -20,12 +20,27 @@ export class UserPerformanceModel {
      * @return {PerformanceData[]} Les données de performance transformées
      */
     private transformPerformanceData(data: UserPerformanceApi): PerformanceData[] {
-        return data.data.map((item: PerformanceApiData) => {
-            const kindString = data.kind[item.kind];
+        const translateKind = {
+            1: 'Cardio',
+            2: 'Énergie',
+            3: 'Endurance',
+            4: 'Force',
+            5: 'Vitesse',
+            6: 'Intensité',
+        };
+
+        const orderedKeys = ['Cardio', 'Énergie', 'Endurance', 'Force', 'Vitesse', 'Intensité'];
+
+        const transformedData = data.data.map((item: PerformanceApiData) => {
+            const kindString = translateKind[item.kind];
             return {
                 value: item.value,
-                kind: kindString.charAt(0).toUpperCase() + kindString.slice(1),
+                kind: kindString,
             };
+        });
+
+        return transformedData.sort((a, b) => {
+            return orderedKeys.indexOf(a.kind) - orderedKeys.indexOf(b.kind);
         });
     }
 }
