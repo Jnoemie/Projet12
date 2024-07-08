@@ -14,28 +14,28 @@ const UserKeyData = ({ keyData }: KeyDataProps) => {
   return (
     <div className="key-data">
       <div className="key-data-item">
-        <img src="/assets/calories.jpeg" alt="Calories Icon" className="key-data-icon" />
+        <img src="./calories.svg" alt="calorieIcon" className="keyDataIcon" />
         <div className="key-data-content">
           <p className="key-data-value">{keyData.calorieCount}kCal</p>
           <p className="key-data-type">Calories</p>
         </div>
       </div>
       <div className="key-data-item">
-        <img src="/assets/proteine.jpeg" alt="Protein Icon" className="key-data-icon" />
+        <img src="./proteines.svg" alt="proteinIcon" className="keyDataIcon" />
         <div className="key-data-content">
           <p className="key-data-value">{keyData.proteinCount}g</p>
           <p className="key-data-type">Proteines</p>
         </div>
       </div>
       <div className="key-data-item">
-        <img src="/assets/glucides.jpeg" alt="Carbohydrates Icon" className="key-data-icon" />
+        <img src="./glucides.svg" alt="carbohydratesIcon" className="keyDataIcon" />
         <div className="key-data-content">
           <p className="key-data-value">{keyData.carbohydrateCount}g</p>
           <p className="key-data-type">Glucides</p>
         </div>
       </div>
       <div className="key-data-item">
-        <img src="/assets/lipides.jpeg" alt="Lipids Icon" className="key-data-icon" />
+        <img src="./lipides.svg" alt="lipidsIcon" className="keyDataIcon" />
         <div className="key-data-content">
           <p className="key-data-value">{keyData.lipidCount}g</p>
           <p className="key-data-type">Lipides</p>
